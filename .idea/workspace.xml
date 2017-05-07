@@ -1,0 +1,944 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CMakeRunConfigurationManager" shouldGenerate="true" shouldDeleteObsolete="true" buildAllGenerated="true">
+    <generated>
+      <config projectName="HybridSSD" targetName="Test" />
+      <config projectName="HybridSSD" targetName="HybridSSD" />
+    </generated>
+  </component>
+  <component name="CMakeSettings">
+    <configurations>
+      <configuration CONFIG_NAME="Debug" />
+    </configurations>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="a1d828bb-72ab-4869-92b8-81e5f3944540" name="Default" comment="">
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeRCCompiler.cmake" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CompilerIdC/a.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CompilerIdCXX/a.exe" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/CXX.includecache" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeDetermineCompilerABI_C.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeDetermineCompilerABI_C.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeDetermineCompilerABI_CXX.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeDetermineCompilerABI_CXX.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/avlTree.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/avlTree.c.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/flash.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/flash.c.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/initialize.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/initialize.c.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/pagemap.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/pagemap.c.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/ssd.c.o" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/ssd.c.o" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/feature_tests.bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/HybridSSD.exe" afterPath="$PROJECT_DIR$/cmake-build-debug/HybridSSD.exe" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/ex.out" afterPath="$PROJECT_DIR$/cmake-build-debug/ex.out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/statistic10.dat" afterPath="$PROJECT_DIR$/cmake-build-debug/statistic10.dat" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeCCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeCCompiler.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeCXXCompiler.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeCXXCompiler.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeSystem.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.7.1/CMakeSystem.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeDirectoryInformation.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeOutput.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/C.includecache" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/C.includecache" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/DependInfo.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/DependInfo.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/build.make" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/build.make" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/cmake_clean.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/cmake_clean.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/depend.internal" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/depend.internal" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/link.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/HybridSSD.dir/link.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/Makefile2" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-log.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/HybridSSD.cbp" afterPath="$PROJECT_DIR$/cmake-build-debug/HybridSSD.cbp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/HybridSSD.exe.stackdump" afterPath="$PROJECT_DIR$/cmake-build-debug/HybridSSD.exe.stackdump" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/Makefile" afterPath="$PROJECT_DIR$/cmake-build-debug/Makefile" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" afterPath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/lpn_stat.txt" afterPath="$PROJECT_DIR$/cmake-build-debug/lpn_stat.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cmake-build-debug/page.parameters" afterPath="$PROJECT_DIR$/cmake-build-debug/page.parameters" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/initialize.c" afterPath="$PROJECT_DIR$/initialize.c" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/initialize.h" afterPath="$PROJECT_DIR$/initialize.h" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ssd.c" afterPath="$PROJECT_DIR$/ssd.c" />
+    </list>
+    <ignored path="$PROJECT_DIR$/cmake-build-debug/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="HybridSSD" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="CMakeLists.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="18">
+              <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="flash.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/flash.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="630">
+              <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+              <folding>
+                <marker date="1493713540000" expanded="true" signature="1295:12063" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="12415:24702" ph="{...}" />
+                <marker date="1493713540000" expanded="false" signature="12875:12977" ph="..." />
+                <marker date="1493713540000" expanded="true" signature="25054:26060" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="26403:27354" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="27655:31252" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="31560:33079" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="33447:36484" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="36850:38532" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="38953:43864" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="44170:50272" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="50548:51382" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="51384:51414" ph="/.../" />
+                <marker date="1493713540000" expanded="true" signature="51538:57915" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="58092:60679" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="60901:70555" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="70753:75048" ph="{...}" />
+                <marker date="1493713540000" expanded="false" signature="71546:71611" ph="..." />
+                <marker date="1493713540000" expanded="true" signature="75510:92626" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="92858:93778" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="94451:106032" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="106264:111811" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="112386:126962" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="126964:127005" ph="/.../" />
+                <marker date="1493713540000" expanded="true" signature="127237:131801" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="132116:134964" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="135428:141864" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="142233:145514" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="145726:152857" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="153037:156057" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="156484:159218" ph="{...}" />
+                <marker date="1493713540000" expanded="true" signature="159633:161151" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initialize.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/initialize.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="388">
+              <caret line="559" column="62" lean-forward="false" selection-start-line="559" selection-start-column="62" selection-end-line="559" selection-end-column="62" />
+              <folding>
+                <marker date="1494152356076" expanded="true" signature="24757:27102" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="page.parameters" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/cmake-build-debug/page.parameters">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="824">
+              <caret line="92" column="28" lean-forward="false" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ssd.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ssd.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="442">
+              <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ssd.c" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ssd.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="561">
+              <caret line="1341" column="45" lean-forward="true" selection-start-line="1341" selection-start-column="45" selection-end-line="1341" selection-end-column="45" />
+              <folding>
+                <element signature="e#1120#1139#0" expanded="true" />
+                <element signature="e#1927#1950#0" expanded="true" />
+                <element signature="e#5905#5975#0" expanded="true" />
+                <element signature="e#12105#12180#0" expanded="true" />
+                <element signature="e#17576#17641#0" expanded="true" />
+                <element signature="e#18335#18403#0" expanded="true" />
+                <element signature="e#21094#21164#0" expanded="true" />
+                <element signature="e#21317#21374#0" expanded="true" />
+                <element signature="e#21518#21575#0" expanded="true" />
+                <element signature="e#21646#21854#0" expanded="true" />
+                <element signature="e#23974#24049#0" expanded="true" />
+                <element signature="e#25465#25652#0" expanded="true" />
+                <element signature="e#29042#29116#0" expanded="true" />
+                <element signature="e#37690#37713#0" expanded="true" />
+                <element signature="e#37834#37857#0" expanded="true" />
+                <element signature="e#50765#50806#0" expanded="true" />
+                <element signature="e#57899#57924#0" expanded="true" />
+                <element signature="e#58371#58400#0" expanded="true" />
+                <element signature="e#60185#60220#0" expanded="true" />
+                <element signature="e#60686#60723#0" expanded="true" />
+                <element signature="e#62220#62255#0" expanded="true" />
+                <element signature="e#62846#62883#0" expanded="true" />
+                <element signature="e#63636#63673#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="initialize.h" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/initialize.h">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="219">
+              <caret line="426" column="38" lean-forward="false" selection-start-line="426" selection-start-column="38" selection-end-line="426" selection-end-column="38" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pagemap.c" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pagemap.c">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3654">
+              <caret line="203" column="34" lean-forward="false" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
+              <folding>
+                <marker date="1493713234000" expanded="true" signature="2205:2307" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="15185:15658" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="15856:20677" ph="{...}" />
+                <marker date="1493713234000" expanded="false" signature="16070:16112" ph="..." />
+                <marker date="1493713234000" expanded="true" signature="21132:29331" ph="{...}" />
+                <marker date="1493713234000" expanded="false" signature="21557:21648" ph="..." />
+                <marker date="1493713234000" expanded="false" signature="23905:24172" ph="..." />
+                <marker date="1493713234000" expanded="true" signature="29722:31289" ph="{...}" />
+                <marker date="1493713234000" expanded="false" signature="29808:29906" ph="..." />
+                <marker date="1493713234000" expanded="true" signature="31902:33131" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="33537:40592" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="41497:45607" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="45702:51302" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="51845:57985" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="58547:63676" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="63936:64555" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="64732:68919" ph="{...}" />
+                <marker date="1493713234000" expanded="true" signature="69616:71193" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>page_num</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/CMakeLists.txt" />
+        <option value="$PROJECT_DIR$/pagemap.c" />
+        <option value="$PROJECT_DIR$/flash.c" />
+        <option value="$PROJECT_DIR$/initialize.h" />
+        <option value="$PROJECT_DIR$/initialize.c" />
+        <option value="$PROJECT_DIR$/cmake-build-debug/page.parameters" />
+        <option value="$PROJECT_DIR$/ssd.c" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="ProjectFrameBounds">
+    <option name="x" value="64" />
+    <option name="y" value="-11" />
+    <option name="width" value="1857" />
+    <option name="height" value="1092" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HybridSSD" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HybridSSD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HybridSSD" />
+              <option name="myItemType" value="com.jetbrains.cidr.projectView.CidrFilesViewHelper$MyProjectTreeStructure$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HybridSSD" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="cmake-build-debug" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.HybridSSD">
+    <configuration default="true" type="CLion_Remote" factoryName="GDB Remote Debug" remoteCommand="" symbolFile="" sysroot="">
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeCatchTestRunConfigurationType" factoryName="Catch Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeGoogleTestRunConfigurationType" factoryName="Google Test" PASS_PARENT_ENVS_2="true" TEST_MODE="SUITE_TEST">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true">
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="ChromiumRemoteDebugType" factoryName="Chromium Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="CompoundRunConfigurationType" factoryName="Compound Run Configuration">
+      <method />
+    </configuration>
+    <configuration default="true" type="FirefoxRemoteDebugType" factoryName="Firefox Remote">
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeWebKit" factoryName="NW.js">
+      <method />
+    </configuration>
+    <configuration default="true" type="PythonConfigurationType" factoryName="Python">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HybridSSD" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="ReactNative" factoryName="React Native">
+      <node-interpreter value="project" />
+      <platform value="ANDROID" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="Tox" factoryName="Tox">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HybridSSD" />
+      <method />
+    </configuration>
+    <configuration default="true" type="XSLT" factoryName="XSLT">
+      <option name="myOutputFile" />
+      <option name="myOpenOutputFile" value="false" />
+      <option name="myOpenInBrowser" value="false" />
+      <option name="mySmartErrorHandling" value="true" />
+      <option name="myRunnerPort" value="34873" />
+      <option name="myVmArguments" />
+      <option name="myWorkingDirectory" />
+      <option name="myModule" />
+      <option name="myJdk" />
+      <parameters />
+      <OutputType value="CONSOLE" save-to-file="false" />
+      <FileType name="XML" />
+      <JdkChoice value="FROM_MODULE" />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.grunt" factoryName="Grunt.js">
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Doctests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HybridSSD" />
+      <option name="SCRIPT_NAME" value="" />
+      <option name="CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="" />
+      <option name="FOLDER_NAME" value="" />
+      <option name="TEST_TYPE" value="TEST_SCRIPT" />
+      <option name="PATTERN" value="" />
+      <option name="USE_PATTERN" value="false" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Nosetests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HybridSSD" />
+      <option name="_new_regexPattern" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Unittests">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HybridSSD" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="py.test">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="HybridSSD" />
+      <option name="_new_keywords" value="&quot;&quot;" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;.&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
+      <method />
+    </configuration>
+    <configuration default="false" name="HybridSSD" type="CMakeRunConfiguration" factoryName="Application" PASS_PARENT_ENVS_2="true" PROJECT_NAME="HybridSSD" TARGET_NAME="HybridSSD" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="HybridSSD" RUN_TARGET_NAME="HybridSSD">
+      <envs />
+      <method />
+    </configuration>
+    <list size="1">
+      <item index="0" class="java.lang.String" itemvalue="Application.HybridSSD" />
+    </list>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1d828bb-72ab-4869-92b8-81e5f3944540" name="Default" comment="" />
+      <created>1494147324201</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1494147324201</updated>
+      <workItem from="1494147325934" duration="494000" />
+      <workItem from="1494147862823" duration="1837000" />
+      <workItem from="1494151040104" duration="1370000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3701000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="64" y="-11" width="1857" height="1092" extended-state="6" />
+    <layout>
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1116639" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.545929" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="CMake" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3862213" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.118297406" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" x="129" y="177" width="222" height="991" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960325" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="processedProjectFiles" value="true" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+    <watches-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flash.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <marker date="1493713540000" expanded="true" signature="1295:12063" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="12415:24702" ph="{...}" />
+            <marker date="1493713540000" expanded="false" signature="12875:12977" ph="..." />
+            <marker date="1493713540000" expanded="true" signature="25054:26060" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="26403:27354" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="27655:31252" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="31560:33079" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="33447:36484" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="36850:38532" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="38953:43864" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="44170:50272" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="50548:51382" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="51384:51414" ph="/.../" />
+            <marker date="1493713540000" expanded="true" signature="51538:57915" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="58092:60679" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="60901:70555" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="70753:75048" ph="{...}" />
+            <marker date="1493713540000" expanded="false" signature="71546:71611" ph="..." />
+            <marker date="1493713540000" expanded="true" signature="75510:92626" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="92858:93778" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="94451:106032" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="106264:111811" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="112386:126962" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="126964:127005" ph="/.../" />
+            <marker date="1493713540000" expanded="true" signature="127237:131801" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="132116:134964" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="135428:141864" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="142233:145514" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="145726:152857" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="153037:156057" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="156484:159218" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="159633:161151" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initialize.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3420">
+          <caret line="190" column="4" lean-forward="false" selection-start-line="190" selection-start-column="4" selection-end-line="190" selection-end-column="4" />
+          <folding>
+            <marker date="1494152356076" expanded="true" signature="24757:27102" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initialize.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="8586">
+          <caret line="477" column="8" lean-forward="false" selection-start-line="477" selection-start-column="8" selection-end-line="477" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagemap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3654">
+          <caret line="203" column="34" lean-forward="false" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
+          <folding>
+            <marker date="1493713234000" expanded="true" signature="2205:2307" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="15185:15658" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="15856:20677" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="16070:16112" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="21132:29331" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="21557:21648" ph="..." />
+            <marker date="1493713234000" expanded="false" signature="23905:24172" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="29722:31289" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="29808:29906" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="31902:33131" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="33537:40592" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="41497:45607" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="45702:51302" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="51845:57985" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="58547:63676" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="63936:64555" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="64732:68919" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="69616:71193" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssd.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="23742">
+          <caret line="1319" column="26" lean-forward="false" selection-start-line="1319" selection-start-column="26" selection-end-line="1319" selection-end-column="26" />
+          <folding>
+            <element signature="e#1120#1139#0" expanded="true" />
+            <element signature="e#1927#1950#0" expanded="true" />
+            <element signature="e#5905#5975#0" expanded="true" />
+            <element signature="e#12105#12180#0" expanded="true" />
+            <element signature="e#17576#17641#0" expanded="true" />
+            <element signature="e#18335#18403#0" expanded="true" />
+            <element signature="e#21094#21164#0" expanded="true" />
+            <element signature="e#21317#21374#0" expanded="true" />
+            <element signature="e#21518#21575#0" expanded="true" />
+            <element signature="e#21646#21854#0" expanded="true" />
+            <element signature="e#23974#24049#0" expanded="true" />
+            <element signature="e#25465#25652#0" expanded="true" />
+            <element signature="e#29042#29116#0" expanded="true" />
+            <element signature="e#37690#37713#0" expanded="true" />
+            <element signature="e#37834#37857#0" expanded="true" />
+            <element signature="e#50765#50806#0" expanded="true" />
+            <element signature="e#57899#57924#0" expanded="true" />
+            <element signature="e#58371#58400#0" expanded="true" />
+            <element signature="e#60185#60220#0" expanded="true" />
+            <element signature="e#60686#60723#0" expanded="true" />
+            <element signature="e#62220#62255#0" expanded="true" />
+            <element signature="e#62846#62883#0" expanded="true" />
+            <element signature="e#63636#63673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagemap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3834">
+          <caret line="213" column="9" lean-forward="true" selection-start-line="213" selection-start-column="9" selection-end-line="213" selection-end-column="9" />
+          <folding>
+            <marker date="1493713234000" expanded="true" signature="2205:2307" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="15185:15658" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="15856:20677" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="16070:16112" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="21132:29331" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="21557:21648" ph="..." />
+            <marker date="1493713234000" expanded="false" signature="23905:24172" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="29722:31289" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="29808:29906" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="31902:33131" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="33537:40592" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="41497:45607" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="45702:51302" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="51845:57985" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="58547:63676" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="63936:64555" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="64732:68919" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="69616:71193" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flash.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="738">
+          <caret line="41" column="0" lean-forward="false" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding>
+            <marker date="1493713540000" expanded="true" signature="1295:12063" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="12415:24702" ph="{...}" />
+            <marker date="1493713540000" expanded="false" signature="12875:12977" ph="..." />
+            <marker date="1493713540000" expanded="true" signature="25054:26060" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="26403:27354" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="27655:31252" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="31560:33079" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="33447:36484" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="36850:38532" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="38953:43864" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="44170:50272" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="50548:51382" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="51384:51414" ph="/.../" />
+            <marker date="1493713540000" expanded="true" signature="51538:57915" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="58092:60679" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="60901:70555" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="70753:75048" ph="{...}" />
+            <marker date="1493713540000" expanded="false" signature="71546:71611" ph="..." />
+            <marker date="1493713540000" expanded="true" signature="75510:92626" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="92858:93778" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="94451:106032" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="106264:111811" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="112386:126962" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="126964:127005" ph="/.../" />
+            <marker date="1493713540000" expanded="true" signature="127237:131801" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="132116:134964" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="135428:141864" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="142233:145514" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="145726:152857" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="153037:156057" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="156484:159218" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="159633:161151" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/main.c" />
+    <entry file="file://$PROJECT_DIR$/.gitattributes">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CMakeLists.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="1" column="17" lean-forward="false" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pagemap.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3654">
+          <caret line="203" column="34" lean-forward="false" selection-start-line="203" selection-start-column="34" selection-end-line="203" selection-end-column="34" />
+          <folding>
+            <marker date="1493713234000" expanded="true" signature="2205:2307" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="15185:15658" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="15856:20677" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="16070:16112" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="21132:29331" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="21557:21648" ph="..." />
+            <marker date="1493713234000" expanded="false" signature="23905:24172" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="29722:31289" ph="{...}" />
+            <marker date="1493713234000" expanded="false" signature="29808:29906" ph="..." />
+            <marker date="1493713234000" expanded="true" signature="31902:33131" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="33537:40592" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="41497:45607" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="45702:51302" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="51845:57985" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="58547:63676" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="63936:64555" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="64732:68919" ph="{...}" />
+            <marker date="1493713234000" expanded="true" signature="69616:71193" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/flash.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="630">
+          <caret line="35" column="42" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="42" />
+          <folding>
+            <marker date="1493713540000" expanded="true" signature="1295:12063" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="12415:24702" ph="{...}" />
+            <marker date="1493713540000" expanded="false" signature="12875:12977" ph="..." />
+            <marker date="1493713540000" expanded="true" signature="25054:26060" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="26403:27354" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="27655:31252" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="31560:33079" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="33447:36484" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="36850:38532" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="38953:43864" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="44170:50272" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="50548:51382" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="51384:51414" ph="/.../" />
+            <marker date="1493713540000" expanded="true" signature="51538:57915" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="58092:60679" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="60901:70555" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="70753:75048" ph="{...}" />
+            <marker date="1493713540000" expanded="false" signature="71546:71611" ph="..." />
+            <marker date="1493713540000" expanded="true" signature="75510:92626" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="92858:93778" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="94451:106032" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="106264:111811" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="112386:126962" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="126964:127005" ph="/.../" />
+            <marker date="1493713540000" expanded="true" signature="127237:131801" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="132116:134964" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="135428:141864" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="142233:145514" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="145726:152857" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="153037:156057" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="156484:159218" ph="{...}" />
+            <marker date="1493713540000" expanded="true" signature="159633:161151" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssd.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="41" column="11" lean-forward="false" selection-start-line="41" selection-start-column="11" selection-end-line="41" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initialize.h">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="219">
+          <caret line="426" column="38" lean-forward="false" selection-start-line="426" selection-start-column="38" selection-end-line="426" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/initialize.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="388">
+          <caret line="559" column="62" lean-forward="false" selection-start-line="559" selection-start-column="62" selection-end-line="559" selection-end-column="62" />
+          <folding>
+            <marker date="1494152356076" expanded="true" signature="24757:27102" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/cmake-build-debug/page.parameters">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="824">
+          <caret line="92" column="28" lean-forward="false" selection-start-line="92" selection-start-column="28" selection-end-line="92" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ssd.c">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="1341" column="45" lean-forward="true" selection-start-line="1341" selection-start-column="45" selection-end-line="1341" selection-end-column="45" />
+          <folding>
+            <element signature="e#1120#1139#0" expanded="true" />
+            <element signature="e#1927#1950#0" expanded="true" />
+            <element signature="e#5905#5975#0" expanded="true" />
+            <element signature="e#12105#12180#0" expanded="true" />
+            <element signature="e#17576#17641#0" expanded="true" />
+            <element signature="e#18335#18403#0" expanded="true" />
+            <element signature="e#21094#21164#0" expanded="true" />
+            <element signature="e#21317#21374#0" expanded="true" />
+            <element signature="e#21518#21575#0" expanded="true" />
+            <element signature="e#21646#21854#0" expanded="true" />
+            <element signature="e#23974#24049#0" expanded="true" />
+            <element signature="e#25465#25652#0" expanded="true" />
+            <element signature="e#29042#29116#0" expanded="true" />
+            <element signature="e#37690#37713#0" expanded="true" />
+            <element signature="e#37834#37857#0" expanded="true" />
+            <element signature="e#50765#50806#0" expanded="true" />
+            <element signature="e#57899#57924#0" expanded="true" />
+            <element signature="e#58371#58400#0" expanded="true" />
+            <element signature="e#60185#60220#0" expanded="true" />
+            <element signature="e#60686#60723#0" expanded="true" />
+            <element signature="e#62220#62255#0" expanded="true" />
+            <element signature="e#62846#62883#0" expanded="true" />
+            <element signature="e#63636#63673#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
