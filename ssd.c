@@ -110,10 +110,15 @@ struct ssd_info *simulate(struct ssd_info *ssd) {
     fprintf(ssd->outputfile,
             "      arrive           lsn     size ope     begin time    response time    process time\n");
     fflush(ssd->outputfile);
-
     while (flag != 100) {
-
         flag = get_requests(ssd);
+       // while(stop_flag != 0 && ssd->request_queue_length < ssd->parameter->req_queue_len) {
+       //     stop_flag = get_requests(ssd);
+       // }
+        //if(flag == -1){
+        //    printf("-1\n");
+        //    pause();
+        //}
         if (flag == 1) {
             //printf("once\n");
             if (ssd->parameter->dram_capacity != 0) {
@@ -130,11 +135,9 @@ struct ssd_info *simulate(struct ssd_info *ssd) {
         if (flag == 0)
             flag = 100;
     }
-
     fclose(ssd->tracefile);
     return ssd;
 }
-
 
 /********    get_request    ******************************************************
 *	1.get requests that arrived already
@@ -268,12 +271,13 @@ int get_requests(struct ssd_info *ssd) {
         ssd->ave_write_size =
                 (ssd->ave_write_size * ssd->write_request_count + request1->size) / (ssd->write_request_count + 1);
     }
-
-
     filepoint = ftell(ssd->tracefile);
     fgets(buffer, 200, ssd->tracefile);    //寻找下一条请求的到达时间
-    sscanf(buffer, "%lld %d %d %d %d", &time_t, &device, &lsn, &size, &ope);
+    sscanf(buffer, "%ld %d %d %d %d", &time_t, &device, &lsn, &size, &ope);
     ssd->next_request_time = time_t;
+    ssd->next_lsn = lsn;
+    ssd->next_size = size;
+    ssd->next_operation = ope;
     fseek(ssd->tracefile, filepoint, 0);
 
     return 1;
@@ -529,6 +533,7 @@ void trace_output(struct ssd_info *ssd) {
 #endif
         if (req->response_time != 0) {
 #ifdef STAT
+
             fprintf(ssd->outputfile, "%16lld %10d %6d %2d %16lld %16lld %10lld\n", req->time, req->lsn, req->size,
                     req->operation, req->begin_time, req->response_time, req->response_time - req->time);
 #endif
@@ -595,6 +600,7 @@ void trace_output(struct ssd_info *ssd) {
                     start_time = sub->begin_time;
                 if (start_time > sub->begin_time)
                     start_time = sub->begin_time;
+
                 if (end_time < sub->complete_time)
                     end_time = sub->complete_time;
                 if ((sub->current_state == SR_COMPLETE) || ((sub->next_state == SR_COMPLETE) &&
@@ -610,10 +616,14 @@ void trace_output(struct ssd_info *ssd) {
             }
 
             if (flag == 1) {
+                if(start_time == 0)
+                    start_time = req->nvm_start_time;
+                if(end_time == 0)
+                    end_time = req->nvm_end_time;
                 //if the request generate a sub_request to nvm, compute the time comsumed on it
                 if (req->nvm_start_time != req->nvm_end_time) {
                     if (end_time < req->nvm_end_time) {
-                        end_time += (req->nvm_end_time - start_time);
+                        end_time += (req->nvm_end_time - req->nvm_start_time);
                     }
                 }
                 //fprintf(ssd->outputfile,"%10I64u %10u %6u %2u %16I64u %16I64u %10I64u\n",req->time,req->lsn, req->size, req->operation, start_time, end_time, end_time-req->time);
@@ -1243,6 +1253,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
                 //todo: here read from nvm, update time, update lru
                 if (req->nvm_start_time <= ssd->current_time) {
                     req->nvm_start_time = ssd->current_time;
+                    req->nvm_end_time = ssd->current_time;
                 }
                 ssd->nvm_read_count++;
                 req->nvm_end_time += 100;
@@ -1261,6 +1272,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
                     //this page is in nvm now
                     if (req->nvm_start_time <= ssd->current_time) {
                         req->nvm_start_time = ssd->current_time;
+                        req->nvm_end_time = ssd->current_time;
                     }
                     ssd->nvm_read_count++;
                     req->nvm_end_time += 100;
@@ -1299,6 +1311,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
                 update_lru(ssd, lpn, 1);
                 if (req->nvm_start_time <= ssd->current_time) {
                     req->nvm_start_time = ssd->current_time;
+                    req->nvm_end_time = ssd->current_time;
                 }
                 req->nvm_end_time += 300;
             } else if (ssd->dram->map->map_entry[lpn].state != 0) { //update write in flash
@@ -1312,6 +1325,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
                     //this page is in nvm now
                     if (req->nvm_start_time <= ssd->current_time) {
                         req->nvm_start_time = ssd->current_time;
+                        req->nvm_end_time = ssd->current_time;
                     }
                     ssd->nvm_write_count++;
                     req->nvm_end_time += 300;
@@ -1337,6 +1351,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
                     update_lru(ssd, lpn, 1);
                     if (req->nvm_start_time <= ssd->current_time) {
                         req->nvm_start_time = ssd->current_time;
+                        req->nvm_end_time = ssd->current_time;
                     }
                     ssd->nvm_write_count++;
                     req->nvm_end_time += 300;
@@ -1353,6 +1368,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
                         //this page is in nvm now
                         if (req->nvm_start_time <= ssd->current_time) {
                             req->nvm_start_time = ssd->current_time;
+                            req->nvm_end_time = ssd->current_time;
                         }
                         ssd->nvm_write_count++;
                         req->nvm_end_time += 300;

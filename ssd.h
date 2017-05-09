@@ -24,7 +24,7 @@ Hao Luo         2011/01/01        2.0           Change               luohao13568
 #include "flash.h"
 #include "pagemap.h"
 
-//#define STAT
+#define STAT
 
 #define LPN_STAT
 //#define DEBUG 1

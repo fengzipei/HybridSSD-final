@@ -575,7 +575,7 @@ creat_sub_request(struct ssd_info *ssd, unsigned int lpn, int size, unsigned int
     sub->next_node = NULL;
     sub->next_subs = NULL;
     sub->update = NULL;
-
+    sub->father_request = req;
     if (req != NULL) {
         sub->next_subs = req->subs;
         req->subs = sub;
@@ -1485,6 +1485,7 @@ struct ssd_info *process(struct ssd_info *ssd) {
     }
 
     time = ssd->current_time;
+    // because some subrequest might be serviced by the buffer, here we need to handle this situation
     services_2_r_cmd_trans_and_complete(
             ssd);                                            /*处理当前状态是SR_R_C_A_TRANSFER或者当前状态是SR_COMPLETE，或者下一状态是SR_COMPLETE并且下一状态预计时间小于当前状态时间*/
 
@@ -1513,25 +1514,21 @@ struct ssd_info *process(struct ssd_info *ssd) {
                     continue;
                 }
             }
-
             sub = ssd->channel_head[i].subs_r_head;                                        /*先处理读请求*/
+            // all read sub_request that are waiting for execution will go one step, i.e. C_A_TRANSFER -> R_READ
             services_2_r_wait(ssd, i, &flag, &chg_cur_time_flag);                           /*处理处于等待状态的读子请求*/
-
+            /*if there are no new read request and data is ready in some dies, send these data to controller and response this request*/
             if ((flag == 0) && (ssd->channel_head[i].subs_r_head !=
-                                NULL))                      /*if there are no new read request and data is ready in some dies, send these data to controller and response this request*/
-            {
+                                NULL)) {
+                // here read sub_request in every channel go one step, i.e. R_READ -> R_DATA_TRANSFER
                 services_2_r_data_trans(ssd, i, &flag, &chg_cur_time_flag);
-
             }
-            if (flag ==
-                0)                                                                  /*if there are no read request to take channel, we can serve write requests*/
+            if (flag == 0) /*if there are no read request to take channel, we can serve write requests*/
             {
                 services_2_write(ssd, i, &flag, &chg_cur_time_flag);
-
             }
         }
     }
-
     return ssd;
 }
 
@@ -3162,6 +3159,78 @@ find_interleave_twoplane_sub_request(struct ssd_info *ssd, unsigned int channel,
 
 }
 
+// this function check if the next request can be inserted into the request queue to reduce response time
+void check_insertion(struct ssd_info *ssd, struct sub_request *sub) {
+    return;
+    // step 1: check the time requriment
+    if (ssd->next_request_time > sub->complete_time) {
+        return;
+    }
+    // step 2: check if there are confilcts
+    if ((sub->father_request->lsn >= ssd->next_lsn && \
+     sub->father_request->lsn <= ssd->next_lsn + ssd->next_size)) {
+        if (!(sub->operation == READ && ssd->next_operation == READ))
+            return;
+    }
+    // step 3: check if the next request is purely request to nvm
+    int last_lpn = (ssd->next_lsn + ssd->next_size - 1) / ssd->parameter->subpage_page;
+    int first_lpn = ssd->next_lsn / ssd->parameter->subpage_page;
+    int i, flag = 1;
+    if (ssd->next_operation == READ) {
+        for (i = first_lpn; i <= last_lpn; i++) {
+            if (ssd->dram->nvm_map->map_entry[i].state == 0) {
+                return;
+            }
+        }
+    } else {
+        int append_conut = 0;
+        for (i = first_lpn; i <= last_lpn; i++) {
+            if (ssd->dram->map->map_entry[i].state != 0) {
+                return;
+            }
+            if (ssd->dram->nvm_map->map_entry[i].state == 0) {
+                append_conut++;
+            }
+        }
+        if (append_conut > ssd->dram->nvm_map->valid_page_num) {
+            return;
+        }
+    }
+    // step 4: handle the next request
+    if (ssd->next_operation == READ) {
+        ssd->nvm_read_count += last_lpn - first_lpn + 1;
+    } else {
+        for (i = first_lpn; i <= last_lpn; i++) {
+            if (ssd->dram->nvm_map->map_entry[i].state == 0) {
+                ssd->dram->nvm_map->map_entry[i].state = 1;
+                ssd->dram->nvm_map->map_entry[i].lpn = i;
+            }
+        }
+    }
+    // step 5: output trace, statistic time comsumed on it, clear the request
+    int response_time = 0;
+    if (ssd->next_operation == READ) {
+        response_time = 100 * (last_lpn - first_lpn + 1);
+    } else {
+        response_time = 300 * (last_lpn - first_lpn + 1);
+    }
+    fprintf(ssd->outputfile, "%16lld %10d %6d %2d %16lld %16lld %10lld\n", ssd->next_request_time, ssd->next_lsn, \
+     ssd->next_size, ssd->next_size, ssd->next_request_time, ssd->next_request_time + response_time, \
+      response_time);
+    sub->complete_time += response_time;
+    long filepoint = ftell(ssd->tracefile);
+    int device, size, ope, lsn;
+    int64_t time_t;
+    char buffer[200];
+    fgets(buffer, 200, ssd->tracefile);    //寻找下一条请求的到达时间
+    sscanf(buffer, "%ld %d %d %d %d", &time_t, &device, &lsn, &size, &ope);
+    ssd->next_request_time = time_t;
+    ssd->next_lsn = lsn;
+    ssd->next_size = size;
+    ssd->next_operation = ope;
+    fseek(ssd->tracefile, filepoint, 0);
+}
+
 
 /**************************************************************************
 *这个函数非常重要，读子请求的状态转变，以及时间的计算都通过这个函数来处理
@@ -3183,6 +3252,7 @@ Status go_one_step(struct ssd_info *ssd, struct sub_request *sub1, struct sub_re
 	*处理普通命令时，读子请求的目标状态分为以下几种情况SR_R_READ，SR_R_C_A_TRANSFER，SR_R_DATA_TRANSFER
 	*写子请求的目标状态只有SR_W_TRANSFER
 	****************************************************************************************************/
+    // status movement: IDLE -> C_A_TRANSFER -> R_READ -> R_DATA_TRANSFER -> COMPLETE
     if (command == NORMAL) {
         sub = sub1;
         location = sub1->location;
@@ -3248,6 +3318,10 @@ Status go_one_step(struct ssd_info *ssd, struct sub_request *sub1, struct sub_re
                                                                    ssd->parameter->time_characteristics.tRC;
                 sub->complete_time = sub->next_state_predict_time;
 
+
+                //todo: here we need to decide whether to interrupt current execution
+
+                check_insertion(ssd, sub);
                 ssd->channel_head[location->channel].current_state = CHANNEL_DATA_TRANSFER;
                 ssd->channel_head[location->channel].current_time = ssd->current_time;
                 ssd->channel_head[location->channel].next_state = CHANNEL_IDLE;
@@ -3278,6 +3352,8 @@ Status go_one_step(struct ssd_info *ssd, struct sub_request *sub1, struct sub_re
                                                ssd->parameter->time_characteristics.tWC;
                 sub->complete_time = sub->next_state_predict_time;
                 time = sub->complete_time;
+                //todo: here we need to decide whether to interrupt current execution
+                check_insertion(ssd, sub);
 
                 ssd->channel_head[location->channel].current_state = CHANNEL_TRANSFER;
                 ssd->channel_head[location->channel].current_time = ssd->current_time;

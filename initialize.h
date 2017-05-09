@@ -162,6 +162,9 @@ struct ssd_info {
     double ssd_energy;                   //SSD的能耗，是时间和芯片数的函数,能耗因子
     int64_t current_time;                //the start time of a request
     int64_t next_request_time;
+    int64_t next_lsn;
+    int64_t next_size;
+    int64_t next_operation;
     unsigned int real_time_subreq;       //记录实时的写请求个数，用在全动态分配时，channel优先的情况
     int flag;
     int active_flag;                     //记录主动写是否阻塞，如果发现柱塞，需要将时间向前推进,0表示没有阻塞，1表示被阻塞，需要向前推进时间
@@ -405,7 +408,7 @@ struct sub_request {
 
     int64_t begin_time;               //子请求开始时间
     int64_t complete_time;            //记录该子请求的处理时间,既真正写入或者读出数据的时间
-
+    struct request *father_request;
     struct local *location;           //在静态分配和混合分配方式中，已知lpn就知道该lpn该分配到那个channel，chip，die，plane，这个结构体用来保存计算得到的地址
     struct sub_request *next_subs;    //指向属于同一个request的子请求
     struct sub_request *next_node;    //指向同一个channel中下一个子请求结构体
@@ -430,6 +433,7 @@ struct parameter_value {
     unsigned int split_threshold;
     unsigned int migrate_threshold;
     unsigned int remain_threshold;
+    unsigned int req_queue_len;
     unsigned int nvm_page_num; // page number in nvm
     unsigned int chip_num;          //记录一个SSD中有多少个颗粒
     unsigned int dram_capacity;     //记录SSD中DRAM capacity
