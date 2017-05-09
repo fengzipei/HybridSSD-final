@@ -139,6 +139,67 @@ struct ssd_info *simulate(struct ssd_info *ssd) {
     return ssd;
 }
 
+
+//  this function check if the next request can be inserted into the request queue to reduce response time
+//  return response time if insertion is successful, return 0 otherwise
+int check_insertion(struct ssd_info *ssd, int64_t time_t, int lsn, int size, int ope, int64_t nearest_time) {
+    // step 1: check if the next request is purely request to nvm
+    int last_lpn = (lsn + size - 1) / ssd->parameter->subpage_page;
+    int first_lpn = lsn / ssd->parameter->subpage_page;
+    int i, flag = 1;
+    if (ope == READ) {
+        for (i = first_lpn; i <= last_lpn; i++) {
+            if (ssd->dram->nvm_map->map_entry[i].state == 0) {
+                return 0;
+            }
+        }
+    } else {
+        int append_conut = 0;
+        for (i = first_lpn; i <= last_lpn; i++) {
+            if (ssd->dram->map->map_entry[i].state != 0) {
+                return 0;
+            }
+            if (ssd->dram->nvm_map->map_entry[i].state == 0) {
+                append_conut++;
+            }
+        }
+        if (append_conut > ssd->dram->nvm_map->valid_page_num) {
+            return 0;
+        }
+    }
+    // step 2: maintain the pagetable of nvm
+    if (ope == READ) {
+        ssd->nvm_read_count += last_lpn - first_lpn + 1;
+    } else {
+        for (i = first_lpn; i <= last_lpn; i++) {
+            if (ssd->dram->nvm_map->map_entry[i].state == 0) {
+                ssd->dram->nvm_map->map_entry[i].state = 1;
+                ssd->dram->nvm_map->map_entry[i].lpn = i;
+            }
+        }
+    }
+    // step 3: output trace, statistic time comsumed on it, clear the request
+    int64_t response_time = 0;
+    if (ope == READ) {
+        response_time = 100 * (last_lpn - first_lpn + 1);
+    } else {
+        response_time = 300 * (last_lpn - first_lpn + 1);
+    }
+    fprintf(ssd->outputfile, "%16lld %10d %6d %2d %16lld %16lld %10lld\n", time_t, lsn, \
+     size, ope, nearest_time, nearest_time + response_time, response_time);
+    fflush(ssd->outputfile);
+    if (ope == READ) {
+        ssd->read_request_count++;
+        ssd->read_avg = ssd->read_avg + response_time;
+    } else {
+        ssd->write_request_count++;
+        ssd->write_avg = ssd->write_avg + response_time;
+    }
+
+    return 1;
+
+}
+
 /********    get_request    ******************************************************
 *	1.get requests that arrived already
 *	2.add those request node to ssd->reuqest_queue
@@ -213,9 +274,16 @@ int get_requests(struct ssd_info *ssd) {
                 ssd->current_time = nearest_event_time;
             return -1;
         } else {
+            //in this case, the request is blocked because the privious one has not finished
+            //todo: check if the blocked request can be executed in advance
+            int response_time = check_insertion(ssd, time_t, lsn, size, ope, nearest_event_time);
             if (ssd->request_queue_length > ssd->parameter->queue_length) {
-                fseek(ssd->tracefile, filepoint, 0);
-                ssd->current_time = nearest_event_time;
+                if(response_time == 0){
+                    fseek(ssd->tracefile, filepoint, 0);
+                    ssd->current_time = nearest_event_time;
+                } else {
+                    ssd->current_time = nearest_event_time + response_time;
+                }
                 return -1;
             } else {
                 ssd->current_time = time_t;

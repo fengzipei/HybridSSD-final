@@ -3158,7 +3158,7 @@ find_interleave_twoplane_sub_request(struct ssd_info *ssd, unsigned int channel,
     }
 
 }
-
+/*
 // this function check if the next request can be inserted into the request queue to reduce response time
 void check_insertion(struct ssd_info *ssd, struct sub_request *sub) {
     return;
@@ -3230,7 +3230,7 @@ void check_insertion(struct ssd_info *ssd, struct sub_request *sub) {
     ssd->next_operation = ope;
     fseek(ssd->tracefile, filepoint, 0);
 }
-
+*/
 
 /**************************************************************************
 *这个函数非常重要，读子请求的状态转变，以及时间的计算都通过这个函数来处理
@@ -3321,7 +3321,6 @@ Status go_one_step(struct ssd_info *ssd, struct sub_request *sub1, struct sub_re
 
                 //todo: here we need to decide whether to interrupt current execution
 
-                check_insertion(ssd, sub);
                 ssd->channel_head[location->channel].current_state = CHANNEL_DATA_TRANSFER;
                 ssd->channel_head[location->channel].current_time = ssd->current_time;
                 ssd->channel_head[location->channel].next_state = CHANNEL_IDLE;
@@ -3353,7 +3352,6 @@ Status go_one_step(struct ssd_info *ssd, struct sub_request *sub1, struct sub_re
                 sub->complete_time = sub->next_state_predict_time;
                 time = sub->complete_time;
                 //todo: here we need to decide whether to interrupt current execution
-                check_insertion(ssd, sub);
 
                 ssd->channel_head[location->channel].current_state = CHANNEL_TRANSFER;
                 ssd->channel_head[location->channel].current_time = ssd->current_time;
