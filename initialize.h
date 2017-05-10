@@ -433,7 +433,7 @@ struct parameter_value {
     unsigned int split_threshold;
     unsigned int migrate_threshold;
     unsigned int remain_threshold;
-    unsigned int req_queue_len;
+    unsigned int forward_step;
     unsigned int nvm_page_num; // page number in nvm
     unsigned int chip_num;          //记录一个SSD中有多少个颗粒
     unsigned int dram_capacity;     //记录SSD中DRAM capacity

@@ -556,8 +556,8 @@ struct parameter_value *load_parameters(char parameter_file[30]) {
             sscanf(buf + next_eql, "%d", &p->threshold_fixed_adjust);
         } else if ((res_eql = strcmp(buf, "threshold value")) == 0) {
             sscanf(buf + next_eql, "%f", &p->threshold_value);
-        } else if ((res_eql = strcmp(buf, "request queue length")) == 0) {
-            sscanf(buf + next_eql, "%d", &p->req_queue_len);
+        } else if ((res_eql = strcmp(buf, "forward step")) == 0) {
+            sscanf(buf + next_eql, "%d", &p->forward_step);
         } else if ((res_eql = strcmp(buf, "nvm write limit")) == 0) {
             sscanf(buf + next_eql, "%f", &p->nvm_write_limit);
         } else if ((res_eql = strcmp(buf, "active write")) == 0) {

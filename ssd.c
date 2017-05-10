@@ -23,6 +23,29 @@ Hao Luo         2011/01/01        2.0           Change               luohao13568
 
 //#define DEBUG_FAW
 
+void restore_trace(struct ssd_info *ssd) {
+    printf("restoring...\n");
+    int fl = 0;
+    unsigned int device, lsn, size, ope, lpn, full_page;
+    unsigned int largest_lsn, sub_size, ppn, add_size = 0;
+    unsigned int i = 0, j, k;
+    int map_entry_new, map_entry_old, modify;
+    int flag = 0;
+    char buffer_request[200];
+    int64_t time;
+    long filepoint0 = ftell(ssd->tracefile);
+    ssd->tracefile = fopen(ssd->tracefilename, "r+");
+    while (fgets(buffer_request, 200, ssd->tracefile)) {
+        sscanf(buffer_request, "%lld %d %d %d %d", &time, &device, &lsn, &size, &ope);
+        if (ope == 3 || ope == 2) {
+            fseek(ssd->tracefile, filepoint0, 0);
+            fprintf(ssd->tracefile, "%ld %d %d %d %d\n", time, device, lsn, size, ope - 2);
+        }
+        filepoint0 = ftell(ssd->tracefile);
+    }
+    fclose(ssd->tracefile);
+}
+
 /********************************************************************************************************************************
 1，main函数中initiatio()函数用来初始化ssd,；2，make_aged()函数使SSD成为aged，aged的ssd相当于使用过一段时间的ssd，里面有失效页，
 non_aged的ssd是新的ssd，无失效页，失效页的比例可以在初始化参数中设置；3，pre_process_page()函数提前扫一遍读请求，把读请求
@@ -71,12 +94,14 @@ int main() {
     //todo 3: handle most of things
     ssd = simulate(ssd);
     //todo 4: output information about nvm
+    //restore the changed trace
     statistic_output(ssd);
 /*	free_all_node(ssd);*/
 
     printf("\n");
     printf("the simulation is completed!\n");
     fclose(ssd->lpn_stat);
+    //restore_trace(ssd);
     return 0;
 /* 	_CrtDumpMemoryLeaks(); */
 }
@@ -101,7 +126,7 @@ struct ssd_info *simulate(struct ssd_info *ssd) {
     printf("\n");
     printf("   ^o^    OK, please wait a moment, and enjoy music and coffee   ^o^    \n");
 
-    ssd->tracefile = fopen(ssd->tracefilename, "r");
+    ssd->tracefile = fopen(ssd->tracefilename, "r+");
     if (ssd->tracefile == NULL) {
         printf("the trace file can't open\n");
         return NULL;
@@ -112,9 +137,9 @@ struct ssd_info *simulate(struct ssd_info *ssd) {
     fflush(ssd->outputfile);
     while (flag != 100) {
         flag = get_requests(ssd);
-       // while(stop_flag != 0 && ssd->request_queue_length < ssd->parameter->req_queue_len) {
-       //     stop_flag = get_requests(ssd);
-       // }
+        // while(stop_flag != 0 && ssd->request_queue_length < ssd->parameter->req_queue_len) {
+        //     stop_flag = get_requests(ssd);
+        // }
         //if(flag == -1){
         //    printf("-1\n");
         //    pause();
@@ -142,11 +167,16 @@ struct ssd_info *simulate(struct ssd_info *ssd) {
 
 //  this function check if the next request can be inserted into the request queue to reduce response time
 //  return response time if insertion is successful, return 0 otherwise
+// todo: add more to pre-execution
 int check_insertion(struct ssd_info *ssd, int64_t time_t, int lsn, int size, int ope, int64_t nearest_time) {
+    // step 0: exclude the requests that have already been responsed
+    if (ope == 3 || ope == 4) {
+        return 0;
+    }
     // step 1: check if the next request is purely request to nvm
     int last_lpn = (lsn + size - 1) / ssd->parameter->subpage_page;
     int first_lpn = lsn / ssd->parameter->subpage_page;
-    int i, flag = 1;
+    int i = 0, flag = 1;
     if (ope == READ) {
         for (i = first_lpn; i <= last_lpn; i++) {
             if (ssd->dram->nvm_map->map_entry[i].state == 0) {
@@ -196,7 +226,7 @@ int check_insertion(struct ssd_info *ssd, int64_t time_t, int lsn, int size, int
         ssd->write_avg = ssd->write_avg + response_time;
     }
 
-    return 1;
+    return response_time;
 
 }
 
@@ -217,7 +247,7 @@ int get_requests(struct ssd_info *ssd) {
     int device, size, ope, large_lsn, i = 0, j = 0;
     struct request *request1;
     int flag = 1;
-    long filepoint;
+    long filepoint, forward_point;
     int64_t time_t = 0;
     int64_t nearest_event_time;
 
@@ -232,6 +262,13 @@ int get_requests(struct ssd_info *ssd) {
     fgets(buffer, 200, ssd->tracefile);
     sscanf(buffer, "%lld %d %d %d %d", &time_t, &device, &lsn, &size, &ope);
 
+    // todo: exclude the requests which are already finished
+
+    while ((ope == 3 || ope == 2)) {
+        filepoint = ftell(ssd->tracefile);
+        fgets(buffer, 200, ssd->tracefile);    //寻找下一条请求的到达时间
+        sscanf(buffer, "%ld %d %d %d %d", &time_t, &device, &lsn, &size, &ope);
+    }
 
     if ((device < 0) && (lsn < 0) && (size < 0) && (ope < 0)) {
         return 100;
@@ -274,16 +311,32 @@ int get_requests(struct ssd_info *ssd) {
                 ssd->current_time = nearest_event_time;
             return -1;
         } else {
-            //in this case, the request is blocked because the privious one has not finished
-            //todo: check if the blocked request can be executed in advance
-            int response_time = check_insertion(ssd, time_t, lsn, size, ope, nearest_event_time);
             if (ssd->request_queue_length > ssd->parameter->queue_length) {
-                if(response_time == 0){
-                    fseek(ssd->tracefile, filepoint, 0);
-                    ssd->current_time = nearest_event_time;
-                } else {
-                    ssd->current_time = nearest_event_time + response_time;
+                //in this case, the request is blocked because the privious one has not finished
+                //todo: check if the blocked request can be executed in advance
+                int64_t response_time = 0, step_time = 0, start_time = nearest_event_time;
+                response_time = check_insertion(ssd, time_t, lsn % large_lsn, size, ope, start_time);
+
+                long tmp_filepoint = 0;
+
+                for (i = 1; i < ssd->parameter->forward_step; i++) {
+                    tmp_filepoint = ftell(ssd->tracefile);
+                    fgets(buffer, 200, ssd->tracefile);
+                    sscanf(buffer, "%lld %d %d %d %d", &time_t, &device, &lsn, &size, &ope);
+                    step_time = check_insertion(ssd, time_t, lsn % large_lsn, size, ope, start_time);
+                    if (step_time != 0) {
+                        fseek(ssd->tracefile, tmp_filepoint, 0);
+                        fprintf(ssd->tracefile, "%lld %d %d %d %d\n", time_t, device, lsn, size, ope + 2);
+                        //printf("out: %lld %d %d %d %d\n", time_t, device, lsn, size, ope + 2);
+                        start_time += step_time;
+                    }
+                    response_time += step_time;
                 }
+                //todo: restore these changed traces
+                if (response_time == 0) {
+                    fseek(ssd->tracefile, filepoint, 0);
+                }
+                ssd->current_time = nearest_event_time + response_time;
                 return -1;
             } else {
                 ssd->current_time = time_t;
@@ -684,9 +737,9 @@ void trace_output(struct ssd_info *ssd) {
             }
 
             if (flag == 1) {
-                if(start_time == 0)
+                if (start_time == 0)
                     start_time = req->nvm_start_time;
-                if(end_time == 0)
+                if (end_time == 0)
                     end_time = req->nvm_end_time;
                 //if the request generate a sub_request to nvm, compute the time comsumed on it
                 if (req->nvm_start_time != req->nvm_end_time) {
@@ -727,7 +780,6 @@ void trace_output(struct ssd_info *ssd) {
                     tmp->location = NULL;
                     free(tmp);
                     tmp = NULL;
-
                 }
 
                 if (pre_node == NULL) {
@@ -1106,7 +1158,7 @@ void update_lru(struct ssd_info *ssd, int lpn, int type) {
         }
         struct entry *tmp = ssd->dram->map->lru_head->post;
         while (tmp != ssd->dram->map->lru_tail) {
-            if(tmp->remain_count > 0){
+            if (tmp->remain_count > 0) {
                 tmp->remain_count--;
             }
             tmp = tmp->post;
@@ -1305,7 +1357,7 @@ struct ssd_info *no_buffer_distribute(struct ssd_info *ssd) {
 
         while (lpn <= last_lpn) {
 #ifdef LPN_STAT
-            fprintf(ssd->lpn_stat, "%d %d\n",ssd->p, lpn);
+            fprintf(ssd->lpn_stat, "%d %d\n", ssd->p, lpn);
             ssd->p++;
 #endif
             sub_state = (ssd->dram->map->map_entry[lpn].state & 0x7fffffff);

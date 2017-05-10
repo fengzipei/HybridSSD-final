@@ -185,7 +185,7 @@ struct ssd_info *pre_process_page(struct ssd_info *ssd) {
     printf("\n");
     printf("begin pre_process_page.................\n");
 
-    ssd->tracefile = fopen(ssd->tracefilename, "r");
+    ssd->tracefile = fopen(ssd->tracefilename, "r+");
     if (ssd->tracefile == NULL)      /*打开trace文件从中读取请求*/
     {
         printf("the trace file can't open\n");
